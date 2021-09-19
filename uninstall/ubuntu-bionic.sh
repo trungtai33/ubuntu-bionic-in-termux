@@ -4,6 +4,6 @@ printf "\n\e[34m[\e[32m*\e[34m]\e[36m Uninstalling Ubuntu Bionic, please wait...
 rm -rf "$PREFIX/share/ubuntu-bionic"
 rm -f "$PREFIX/bin/start-ubuntu-bionic"
 printf "\e[34m[\e[32m*\e[34m]\e[36m Uninstalled successfully.\n\n\e[0m"
-exit 1
+exit
 fi
 printf "\n\e[31mError: distribution Ubuntu Bionic is not installed.\n\n\e[0m"
