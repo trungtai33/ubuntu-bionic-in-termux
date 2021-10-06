@@ -159,7 +159,7 @@ EOF
 cat <<- EOF > "${PREFIX}/share/${directory}/proc/.version"
 Linux version 5.4.0 (termux@ubuntu) (gcc version 4.9 (GCC)) $(uname -v)
 EOF
-bin="start-ubuntu-bionic"
+bin="start-${directory}"
 cat <<- EOF > "${PREFIX}/bin/${bin}"
 #!/data/data/com.termux/files/usr/bin/bash
 unset LD_PRELOAD
