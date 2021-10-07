@@ -7,9 +7,9 @@ exit
 fi
 printf "\n\e[34m[\e[32m*\e[34m]\e[36m Checking device architecture...\n\e[0m"
 case $(uname -m) in
-aarch64) arch="arm64v8"
+aarch64) arch="arm64"
 libgcc_s_path="/lib/aarch64-linux-gnu/libgcc_s.so.1" ;;
-armv7l|armv8l) arch="arm32v7"
+armv7l|armv8l) arch="armhf"
 libgcc_s_path="/lib/arm-linux-gnueabihf/libgcc_s.so.1" ;;
 i686) arch="i386"
 libgcc_s_path="/lib/i386-linux-gnu/libgcc_s.so.1" ;;
