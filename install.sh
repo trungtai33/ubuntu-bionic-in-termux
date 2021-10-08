@@ -23,8 +23,12 @@ apt update > /dev/null 2>&1
 apt install -y proot > /dev/null 2>&1
 tarball="rootfs.tar.gz"
 printf "\e[34m[\e[32m*\e[34m]\e[36m Downloading ${distro_name}, please wait...\n\n\e[34m"
-curl --fail --retry 5 --location --output "${tarball}" \
-"https://partner-images.canonical.com/core/bionic/current/ubuntu-bionic-core-cloudimg-${arch}-root.tar.gz"
+if ! curl --fail --retry 5 --location --output "${tarball}" \
+"https://partner-images.canonical.com/core/bionic/current/ubuntu-bionic-core-cloudimg-${arch}-root.tar.gz"; then
+printf "\n\e[34m[\e[32m*\e[34m]\e[36m Download failure, please check your network connection.\n\n\e[0m"
+rm -f "${tarball}"
+exit
+fi
 mkdir -p "${PREFIX}/share/${directory}"
 printf "\n\e[34m[\e[32m*\e[34m]\e[36m Installing ${distro_name}, please wait...\n\e[31m"
 proot --link2symlink tar -xf "${tarball}" --directory="${PREFIX}/share/${directory}" --exclude='dev'||:
