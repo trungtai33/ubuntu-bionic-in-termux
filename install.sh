@@ -37,7 +37,7 @@ export PULSE_SERVER="127.0.0.1"
 export MOZ_FAKE_NO_SANDBOX="1"
 export TERM=${TERM-xterm-256color}
 export TMPDIR=/tmp
-export LANG="C.UTF-8"
+[ -z "\$LANG" ] && export LANG="C.UTF-8"
 EOF
 cat <<- EOF > "${PREFIX}/share/${directory}/etc/resolv.conf"
 nameserver 8.8.8.8
